@@ -1,0 +1,86 @@
+<nav class="navbar navbar-default navbar-fixed-top container" id="routedetail_nav" role="navigation">
+    <a class="navbar-brand">
+        {{routeinfo[0].routenm}}
+    </a>
+    <span class="btn-group pull-right">
+        <a class="navbar-brand" ng-click="addBookmark()">
+            <i class="fa fa-star-o fa-lg" ng-show="star_o"></i>
+            <i class="fa fa-star fa-lg" ng-show="star"></i>
+        </a>
+        <a class="navbar-brand" id="routedetail_refresh_btn" ng-click="refresh_routeData()">
+            <i class="fa fa-refresh fa-lg"></i>
+        </a>
+    </span>
+</nav>
+
+
+<div class="well" id="route_info_div">
+    <div class="row">
+        <div class="col-xs-6">
+            기점 - {{routeinfo[0].sstationnm}}
+        </div>
+        <div class="col-xs-6">
+            {{routeinfo[0].sttminfo}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            종점 - {{routeinfo[0].estationnm}}
+        </div>
+        <div class="col-xs-6">
+            {{routeinfo[0].edtminfo}}
+        </div>
+    </div>
+    <div class="row">
+        <!--<div class="col-xs-6">
+            노선유형 - {{routeTypeNm}}
+        </div>-->
+        <div class="col-xs-12">
+            배차 간격 - {{routeinfo[0].term}}
+        </div>
+    </div>
+    <br>
+</div>
+
+<!--상행과 하행을 표시해주는 두개의 패널 -->
+
+<div class="col-xs-6 panel panel-warning" id="upstation_div">
+    <div class="panel-heading">
+        <h3 class="panel-title">상행 방향</h3>
+    </div>
+    <div class="panel-body" ng-repeat = "station in upstation" ng-click="gostationDetail(station.stationnm, station.arsid, station.stationid)"
+         id="upstation_repeat_div">
+        <a class='btn btn-block' role='button'>
+            {{station.stationnm}}
+        </a>
+        <div>
+            <h3 class="text-center" id="up_busicon_h3" ng-hide="positionCheck_up(station.seq)">
+                <span ng-if="$index!=glycheck" class="glyphicon glyphicon-chevron-down"></span>
+            </h3>
+            <div ng-show="positionCheck_up(station.seq)">
+                <img src='/images/bus_image.png' id="up_busimage">
+                <h6 id="up_plainNo_h6">{{plainNo}}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-6 panel panel-info" id="downstation_div">
+    <div class="panel-heading">
+        <h3 class="panel-title">하행 방향</h3>
+    </div>
+    <div class="panel-body" ng-repeat = "station in downstation" ng-click="gostationDetail(station.arsid, station.stationid)"
+         id="downstation_repeat_div">
+        <a class='btn btn-block' role='button'>
+            {{station.stationnm}}
+        </a>
+        <div>
+            <h3 class="text-center" id="down_busicon_h3"  ng-hide="positionCheck_down(station.seq)"><span class="glyphicon glyphicon-chevron-up"></span></h3>
+            <div ng-show="positionCheck_down(station.seq)">
+                <img src='/images/bus_image.png' id="down_busimage">
+                <h6 id="down_plainNo_h6">{{plainNo}}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,225 @@
+/* 식별자 생성 규칙
+    1. 현재 style이 적용된 태그의 부모태그에만 id를 지정한다.
+*/
+
+/*************** index.html ***************/
+#main_navtag {
+    margin-bottom: 0px; border-radius: 0px;
+}
+a.btn.btn-default.navitem{
+    background-color: #161f29;
+    border:0px;
+    border-radius: 0px;
+}
+a.btn.btn-default.navitem:hover{
+    background-color: #648BC5;
+}
+a.btn.btn-default.navitem:active{
+    background-color: #648BC5;
+}
+#index_config_btn {
+    padding-left: 5px;
+}
+
+/***** bookmark.html *****/
+
+#path_title{
+    background-color: forestgreen;
+}
+#alert_Msg_div{
+    text-align: center;
+}
+#routeNm_div {
+    height: 30px;
+    font-size: 17px;
+    padding-top: 2px;
+}
+#stationNm_div {
+    height: 30px;
+    font-size: 15px;
+    padding-top: 4px;
+}
+
+/*************** placesearch.html ***************/
+#shortTime_title_div {
+    background-color: #f0ad4e;
+    color: #ffffff;
+}
+#shortTime_content_div {
+    margin:0;
+}
+#shortTime_content_div > a > div {
+    text-align:center;
+}
+
+
+#shortDis_title_div {
+    background-color: #2d6ca2;
+    color: #ffffff;
+}
+#shortDis_content_div {
+    margin:0;
+}
+#shortDis_content_div > a > div {
+    text-align:center;
+}
+
+
+#nodata_h6 {
+    text-align: center;
+}
+
+/*************** placedetail.html ***************/
+#placedetail_nav {
+    margin-bottom:0px;
+}
+#fullscreen_btn {
+    padding-left: 5px;
+}
+#alldis_alltime_h6 {
+    text-align: center;
+}
+#takeposi_h4 {
+    margin: 0px;
+}
+#alert_div {
+    text-align: center;
+}
+#pathdeatil_repeat_div {
+    margin:0;
+}
+#pathdetail_repeat_left {
+    text-align: center;
+}
+#pathdetail_repeat_right {
+    text-align: center;
+    margin-top: 10px;
+}
+#desti_left {
+    text-align: center;
+}
+#desti_right {
+    text-align: center;
+}
+
+/*************** routesearch.html ***************/
+#select_region_btn_route {
+    width: 92px;
+}
+#input_routeNm {
+    margin:0;
+}
+#routes_div {
+    margin:0;
+}
+
+/*************** routedetail.html ***************/
+#routedetail_nav {
+    margin-bottom:0px;
+}
+#routedetail_nav > a {
+    font-size: 25px;
+}
+#routedetail_refresh_btn {
+    padding-left: 5px;
+}
+#route_info_div {
+    padding: 13px;
+}
+#route_info_div > div {
+    font-size: 10pt;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+#upstation_div {
+    padding-left: 0px;
+    padding-right: 0px;
+    border-color: #ffffff;
+}
+#upstation_repeat_div {
+    padding-bottom: 0px;
+}
+#upstation_repeat_div > a {
+    font-size: 9pt;
+    background-color: dimgray;
+    color:white;
+    white-space:normal;
+}
+#up_busicon_h3 {
+    margin-bottom:0px;
+}
+#up_plainNo_h6 {
+    text-align: center;
+}
+#up_busimage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#downstation_div {
+    padding-left: 0px;
+    padding-right: 0px;
+    border-color: #ffffff;
+}
+#downstation_repeat_div {
+    padding-bottom: 0px;
+}
+#downstation_repeat_div > a {
+    font-size: 9pt;
+    background-color: dimgray;
+    color:white;
+    white-space:normal;
+}
+#down_busicon_h3 {
+    margin-bottom:0px;
+}
+#down_plainNo_h6 {
+    text-align: center;
+}
+#down_busimage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*************** stationsearch.html ***************/
+#select_region_btn_route {
+    width: 92px;
+}
+#stations_div {
+    margin:0;
+}
+
+/*************** stationdetail.html ***************/
+#stationdetail_div {
+    margin-bottom:0px;
+}
+#stationdetail_div > a {
+    font-size: 28px;
+}
+#stationdetail_refresh_btn {
+    padding-left: 5px;
+
+}
+#station_posi {
+    margin: 0px;
+}
+#soonarrive_primay {
+    border-color: #5A85B2;
+}
+#soonarrive_heading {
+    background-color: #5A85B2;
+    border-color: #5A85B2;
+}
+#soonarrive_repeat_h3 {
+    margin-top:0px;
+    display:inline-block;
+}
+#stationdetail_div {
+    margin:0;
+}
+
+/*************** modal.html ***************/
+.modal-backdrop {
+    background-color: red;
+}

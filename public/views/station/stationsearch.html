@@ -1,0 +1,22 @@
+<div class="well bs-component">
+    <div class="input-group">
+        <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="open('sm')" id="select_region_btn_route">
+                {{region_title}}
+            </button>
+        </span>
+        <input type="text" class="form-control" ng-model="search.$"  ng-change="update()"  placeholder="정류소 명/정류소 번호를 입력하세요" onfocus = "this.select()">
+    </div>
+</div>
+
+<div class="panel panel-default" ng-show="check">
+    <div class="panel-heading">정류소 검색 결과</div>
+    <div class="panel-body">
+        <div class="list-group" ng-show="check" id="stations_div">
+            <a class="list-group-item" ng-repeat="stations in route_autocomplete_datas | filter:search" ng-click="gostationDetail(stations.stationnm, region_code, stations.arsid, stations.stationid, stations.latx, stations.longy)">
+                <div><h4>{{stations.stationnm}}</h4></div>
+                <div><h6>{{stations.arsid}}</h6></div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<nav class="navbar navbar-default navbar-fixed-top container" id="stationdetail_nav" role="navigation">
+    <a class="navbar-brand">
+        {{getStationNm}}
+    </a>
+    <span class="btn-group pull-right">
+        <a class="navbar-brand" ng-click="addBookmark()">
+            <i class="fa fa-star-o fa-lg" ng-show="star_o"></i>
+            <i class="fa fa-star fa-lg" ng-show="star"></i>
+        </a>
+        <a class="navbar-brand" id="stationdetail_refresh_btn" ng-click="refresh()">
+            <i class="fa fa-refresh fa-lg"></i>
+        </a>
+    </span>
+</nav>
+
+<h4 id="station_posi">
+    <span class="label label-success">정류소 위치</span>
+</h4>
+<div>
+    <br>
+    <map zoom="18">
+        <marker position="{{center.position}}" icon="/images/busstop.png" centered="true"></marker>
+        <marker ng-repeat="busstop in non_busstops" position="{{[busstop.aroundY, busstop.aroundX]}}" icon="/images/non_busstop.png"
+            on-click="click(busstop.stationnm, busstop.arsid, busstop.stationid, busstop.aroundY, busstop.aroundX)"></marker>
+    </map>
+</div>
+<br>
+
+<div class="panel panel-primary" id="soonarrive_primay">
+    <div class="panel-heading" id="soonarrive_heading">
+        <h3 class="panel-title">잠시 후 도착</h3>
+    </div>
+    <div class="panel-body">
+        <h3 id="soonarrive_repeat_h3" ng-repeat="route in stationDetail" >
+            <span class="label label-primary" soon-arrive arrive-time="route.predicttime"
+                region-code="region_code" route-name="route.routenm" is-last="route.lastbus"
+                ng-show="showValue" showvalue-indir="showValue"></span>
+        </h3>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="list-group" id="stationdetail_div">
+            <a ng-repeat="route in stationDetail" class="list-group-item" ng-click="goRouteDetail(route.routeid)">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <h4>{{route.routenm}}</h4>
+                    </div>
+                    <div class="col-xs-8">
+                        <remain-time arrive-time="route.predicttime" is-last="route.lastbus" region-code="region_code">
+                        </remain-time><!--function-check 가 2일경우 남은시간 카운트를 위한 기능 수행-->
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app = "globus">
+<head lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" user-scalable=no>
+    <link rel="stylesheet" href="/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/css/all_style.css">
+    <link rel="stylesheet" href="/lib/css/autocomplete.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <title></title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-static-top container" id="main_navtag" role="navigation">
+        <a class="navbar-brand" href="#">
+            <i class="fa fa-bus fa-lg"></i>&nbsp;&nbsp;
+            Globus
+        </a>
+        <span class="btn-group pull-right">
+            <a class="navbar-brand" href="#" id="index_config_btn">
+                <i class="fa fa-question-circle fa-lg"></i>
+            </a>
+        </span>
+    </nav>
+
+    <div class="btn-group btn-group-justified">
+        <a href="#/bookmark" id="bookmark" class="btn btn-default navitem">즐겨찾기</a>
+        <a href="#/placesearch" id="placesearch" class="btn btn-default navitem">PLACE</a>
+        <a href="#/routesearch" id="routesearch" class="btn btn-default navitem">노선</a>
+        <a href="#/stationsearch" id="stationsearch" class="btn btn-default navitem">정류소</a>
+    </div>
+    <br>
+
+    <div ng-view class="container">
+    </div>
+
+    <!-- jquery file link -->
+    <script src="/lib/script/jquery.min.js" ></script>
+
+    <!-- bootstrap file link -->
+    <script src="/lib/script/bootstrap.min.js" ></script>
+
+    <!-- angularjs file link-->
+    <script src="/lib/script/angular.min.js"></script>
+    <script src="/lib/script/angular-route.min.js"></script>
+
+    <!-- angular app.js file link  -->
+    <script src="/app.js" ></script>
+
+    <!-- controller -->
+    <script src="/controller/bookmarkController.js"></script>
+    <script src="/controller/placesearchController.js" ></script>
+    <script src="/controller/placedetailController.js" ></script>
+    <script src="/controller/routesearchController.js" ></script>
+    <script src="/controller/routedetailController.js" ></script>
+    <script src="/controller/stationsearchController.js" ></script>
+    <script src="/controller/stationdetailController.js" ></script>
+    <script src="/controller/modalController.js" ></script>
+
+
+    <!-- directive -->
+    <script src="/directive/busDirective.js"></script>
+    <!-- service -->
+    <script src="/service/placefactory.js" ></script>
+    <script src="/service/autocompletefactory.js"></script>
+    <script src="/service/routefactory.js"></script>
+    <script src="/service/stationfactory.js"></script>
+
+    <!-- google maps API V3 -->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+    <!-- angular-google-place-autocomplete file link -->
+    <script src="/lib/script/autocomplete.min.js"></script>
+
+    <!--angular-google-map-->
+    <script src="/lib/script/ng-map.min.js"></script>
+
+    <!--ngStorage-->
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+
+    <!--modal-->
+    <script src="/lib/script/ui-bootstrap-tpls-0.12.0.min.js"></script>
+
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title" id="myModalLasbel">지역선택</h4>
+        </div>
+        <div class="modal-body">
+            <div class="well">
+                <button ng-repeat="item in items" type="button" class="btn btn-primary btn-sm btn-block"
+                        ng-click="ok(item)">
+                    {{item.regionNm}}
+                </button>
+            </div>
+        </div>
+    </script>
+
+</body>
+</html>

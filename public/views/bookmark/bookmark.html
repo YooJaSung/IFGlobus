@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default navbar-fixed-top container" role="navigation">
+    <a class="navbar-brand" href="#">
+        <i class="fa fa-bus fa-lg"></i>&nbsp;&nbsp;
+        Globus
+    </a>
+    <span class="btn-group pull-right">
+        <a class="navbar-brand" href="#" id="index_config_btn">
+            <i class="fa fa-question-circle fa-lg"></i>
+        </a>
+    </span>
+</nav>
+
+<div class="alert alert-dismissable alert-warning bs-component" id="alert_Msg_div" ng-show="alert_div">
+    <strong>{{bookmarkMessage}}</strong>
+</div>
+
+
+<div class="panel panel-success" ng-show="routeMain_div">
+    <div class="panel-heading">노선</div>
+    <div class="list-group" ng-repeat="bookmark_route in routeData">
+        <a class="list-group-item">
+            <div class="row">
+                <div class="col-xs-10" id="routeNm_div"
+                     ng-click="bookmarkRoute_click(bookmark_route.routeNm, bookmark_route.routeId, bookmark_route.cityCode)">
+                    {{bookmark_route.routeNm}}
+                </div>
+                <div class="col-xs-2">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="routeData_remove(bookmark_route.routeId)">
+                        <i class="fa fa-trash fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<div class="panel panel-danger" ng-show="stationMain_div">
+    <div class="panel-heading">정류소</div>
+    <div class="list-group" ng-repeat="bookmark_station in stationData">
+        <a class="list-group-item">
+            <div class="row">
+                <div class="col-xs-10" id="stationNm_div"
+                    ng-click="bookmarkStation_click(bookmark_station.stationNm, bookmark_station.arsId, bookmark_station.cityCode, bookmark_station.stationId)">
+                    {{bookmark_station.stationNm}}
+                </div>
+                <div class="col-xs-2">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="stationData_remove(bookmark_station.stationId)">
+                        <i class="fa fa-trash fa-lg"></i>
+                    </button>
+                </div>
+            </div>
+
+        </a>
+    </div>
+</div>

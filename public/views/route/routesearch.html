@@ -1,0 +1,25 @@
+<div class="well bs-component">
+    <div class="input-group">
+        <span class="input-group-btn">
+            <button class="btn btn-default" ng-click="open('sm')" id="select_region_btn_route">
+                {{region_title}}
+            </button>
+        </span>
+        <input type="text" class="form-control" ng-model="search.$"  ng-change="update()" id="input_routeNm"
+               placeholder="노선 번호를 입력하세요" onfocus = "this.select()">
+    </div>
+</div><!-- /input-group -->
+
+</div>
+<div class="panel panel-default" ng-show="check">
+    <div class="panel-heading">노선 검색 결과</div>
+    <div class="panel-body">
+        <div class="list-group" ng-show="check" id="routes_div">
+            <a ng-repeat="routes in route_autocomplete_datas | filter:search" class="list-group-item" ng-click="goRouteDetail(routes.routeid, region_code)">
+                <div><h4>{{routes.routenm}}</h4></div>
+                <div><h6>{{routes.routeid}}</h6></div>
+                <div><h6>{{routes.sstationnm}} -> {{routes.estationnm}}</h6></div>
+            </a>
+        </div>
+    </div>
+</div>

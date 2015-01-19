@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default navbar-fixed-top container" id="placedetail_nav" role="navigation">
+    <a class="navbar-brand">
+        {{top_pathList}}
+    </a>
+    <span class="btn-group pull-right">
+        <a class="navbar-brand" id="fullscreen_btn" ng-click="fullscreen()">
+            <i class="fa fa-arrows-alt fa-lg"></i>
+        </a>
+    </span>
+</nav>
+
+
+<div>
+    <div class="well well-sm" ng-show="dataCheck">
+        <h6 id="alldis_alltime_h6">
+            총 거리 : {{all_dis}}km &nbsp;&nbsp;&nbsp;
+            총 소요 시간 : 약 {{all_hour}}시간 {{all_minute}}분
+        </h6>
+    </div>
+    <h4 id="takeposi_h4" ng-show="dataCheck">
+        <span class="label label-success">탑승위치</span>
+    </h4>
+    <div ng-if="dataCheck">
+        <br>
+        <map zoom="16" center="{{center.position}}">
+            <marker position="{{center.position}}" icon="/images/busstop.png" centered="true"></marker>
+            <shape name="polyline" id="foo"
+                   path="[{{arrowPositions.arrowPo_start}},{{arrowPositions.arrowPo_end}}]"
+                   icons="[{
+                            icon: {
+                                path: 'FORWARD_CLOSED_ARROW'
+                            },
+                            offset: '100%'
+                        }]" stroke-color="#FF0000" stroke-opacity="0.7" stroke-weight="4">
+            </shape>
+        </map>
+    </div>
+    <div class="alert alert-info" ng-show="infoMsgDiv" id="alert_div">{{infoMsg}}</div>
+    <br>
+    <div class="panel panel-default" ng-show="dataCheck">
+        <div class="panel-heading">상세 경로</div>
+        <div class="panel-body">
+            <div class="list-group" ng-repeat = "pathinfo in place_data.pathList" id="pathdeatil_repeat_div">
+                <a class="list-group-item"
+                   ng-click="getdetaildata(pathinfo.fid[0], pathinfo.fname[0],pathinfo.routeId[0], pathinfo.routeNm[0], pathinfo.fx[0], pathinfo.fy[0], $index)">
+                    <div class="row">
+                        <div class="col-xs-6" id="pathdetail_repeat_left">
+                            <h5>{{pathinfo.fname[0]}}</h5>
+                            <h6>{{pathinfo.routeNm[0]}}</h6>
+                        </div>
+                        <div class="col-xs-6" ng-if="$index == timerstatecode" ng-show="true" id="pathdetail_repeat_right">
+                            <remain-time arrive-time="detail_data.timedata.kals1"></remain-time>
+                        </div>
+                    </div>
+                </a>
+                <a class="list-group-item" ng-if = "$last">
+                    <div class="row">
+                        <div class="col-xs-6" id="desti_left">
+                            <h5>{{pathinfo.tname[0]}}</h5>
+                        </div>
+                        <div class="col-xs-6" id="desti_right">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

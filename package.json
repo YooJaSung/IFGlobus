@@ -1,0 +1,26 @@
+{
+  "name": "dbas",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "cors": "^2.5.0",
+    "debug": "~0.7.4",
+    "express": "~4.2.0",
+    "express-domain-middleware": "^0.1.0",
+    "morgan": "~1.0.0",
+    "mysql": "^2.5.4",
+    "nimble": "0.0.2",
+    "q": "^1.0.1",
+    "request": "^2.47.0",
+    "short-memory": "^0.1.2",
+    "static-favicon": "~1.0.0",
+    "trim": "0.0.1",
+    "xml2js": "^0.4.4",
+    "xml2json": "^0.5.1"
+  }
+}
